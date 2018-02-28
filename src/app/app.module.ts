@@ -10,6 +10,8 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { NetworkProvider } from '../providers/network/network';
 
@@ -22,6 +24,7 @@ import { NetworkProvider } from '../providers/network/network';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -35,7 +38,8 @@ import { NetworkProvider } from '../providers/network/network';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NetworkProvider
+    NetworkProvider,
+    HttpClientModule
   ]
 })
 export class AppModule {}

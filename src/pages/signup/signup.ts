@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NetworkProvider } from '../../providers/network/network';
+
+import { LoginPage } from '../login/login';
 /**
  * Generated class for the SignupPage page.
  *
@@ -32,7 +35,7 @@ export class SignupPage {
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public net:NetworkProvider) {
   }
 
   ionViewDidLoad() {
@@ -41,7 +44,13 @@ export class SignupPage {
 
   Signup()
   {
-  	this.Data.Name;
+  	this.net.insertUser(this.Name, this.P_Name, this.Gender,
+  		this.OCT, this.Number, this.Mail,
+  		this.Country, this.State, this.District, this.AuthorNo,this.Password);
+
+
+
+  	this.navCtrl.setRoot(LoginPage);
 
   }
 
