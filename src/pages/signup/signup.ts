@@ -51,6 +51,7 @@ export class SignupPage {
 
 
   	this.navCtrl.setRoot(LoginPage);
+  	console.log(this.Gender);
 
   }
 

@@ -21,7 +21,7 @@
 			<ion-label floating>
 				User Name
 			</ion-label>
-			<ion-input type="text" ></ion-input>
+			<ion-input [(ngModel)]="name" type="text" ></ion-input>
 
 			
 		</ion-item>
@@ -30,8 +30,9 @@
 			<ion-label floating >
 				Password
 			</ion-label>
-			<ion-input type="password" ></ion-input>
+			<ion-input [(ngModel)]="password" type="password" ></ion-input>
 		</ion-item>
+		<button ion-button block clear (click)="login()" > Login </button>
 
 		
 

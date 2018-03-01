@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 
 import 'rxjs/add/operator/map';
-import {HttpClient ,HttpHeaders} from '@angular/common/http';
+import {HttpClient ,HttpHeaders, HttpParams} from '@angular/common/http';
+import { Http } from '@angular/http';
+
+
 
 import {  ToastController } from 'ionic-angular';
 
@@ -43,11 +46,22 @@ export class NetworkProvider {
       },
       (error : any) =>
       {
-      	console.log(error);
          this.sendFailureNotification('Something went wrong!');
       });
 
   }
+
+
+  login()
+  {
+  	let URI = "https://figurable-jack.000webhostapp.com/php/metpoint/retrivedata.php";
+  	let params = new HttpParams();
+    
+    console.log(URI);
+    return this.http.get(URI,{params:params}).map((res) => res);
+
+  }
+
 
 
   sendSucessNotification(message : string)  : void
